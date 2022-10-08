@@ -26,7 +26,7 @@ const questionSet = [
  
     {
         id: 3,
-        question: 'Question: What is the value of the sum variable?',
+        question: 'What is the value of the sum variable?',
         choice1: 0, 
         choice2: '0.10.7',
         choice3: 0.7999999999999999, 
@@ -103,7 +103,7 @@ const questionSet = [
 
     {
         id: 10,
-        question: 'Which attribute of the <script> element ensure that scripts with this attribute will execute in the order in which they appear in the document?',
+        question: 'Which attribute of the &lt;script&gt; element ensures that scripts with this attribute will execute in the order in which they appear in the document?',
         choice1: 'async',
         choice2: 'defer',
         choice3: 'stable',
@@ -117,41 +117,41 @@ function renderQuestions() {
 
     let question = questionSet[i]
 
-    const questionText = document.querySelector('.question')
-    const answerText = document.querySelector('.answers')
+    const questionText = document.querySelector('.question-container')
+    const answerText = document.querySelector('.choice-container')
 
     let renderQuestion = ''
     let renderAnswers = ''
 
     if (question.id == 2 || question.id == 7) {
-        renderQuestion += `<p>${question.question}</p>`
-        renderAnswers += `<div><input type="text" class="text" name="answer"></div>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
+        renderAnswers += `<div class="choice-text"><input type="text" class="text" name="answer" style="margin:auto"></div>`
     } else if (question.id == 5 || question.id == 6) {
         renderQuestion += `<p>${question.question}</p>`
         renderAnswers +=
-        `<div><input type="radio" class="radio" name="answer"  value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice4']}">${question['choice4']}</div>`
+        `<label class="container">${question['choice1']}<input type="radio" class="radio" name="answer" value="${question['choice1']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="radio" class="radio" name="answer" value="${question['choice2']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="radio" class="radio" name="answer" value="${question['choice3']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="radio" class="radio" name="answer" value="${question['choice4']}"><span class="radio-checkmark"></span></label>`;
     } else if (question.id == 4 || question.id == 9) {
-        renderQuestion += `<p>${question.question}</p>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
         renderAnswers +=
-        `<div><input type="checkbox" class="checkbox" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice4']}">${question['choice4']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice5']}">${question['choice5']}</div>`
+        `<label class="container">${question['choice1']}<input type="checkbox" class="checkbox" value="${question['choice1']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="checkbox" class="checkbox" value="${question['choice2']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="checkbox" class="checkbox" value="${question['choice3']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="checkbox" class="checkbox" value="${question['choice4']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice5']}<input type="checkbox" class="checkbox" value="${question['choice5']}"><span class="checkbox-checkmark"></span></label>`
     } else {
-        renderQuestion += `<p>${question.question}</p>`;
+        renderQuestion += `<h2 id="question">${question.question}</h2>`;
         renderAnswers += 
-        `<div><input type="radio" class="radio" name="answer" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice4']}">${question['choice4']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice5']}">${question['choice5']}</div>`;
+        `<label class="container">${question['choice1']}<input type="radio" class="radio" name="answer" value="${question['choice1']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="radio" class="radio" name="answer" value="${question['choice2']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="radio" class="radio" name="answer" value="${question['choice3']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="radio" class="radio" name="answer" value="${question['choice4']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice5']}<input type="radio" class="radio" name="answer" value="${question['choice5']}"><span class="radio-checkmark"></span></label>`;
     }
     
-    questionText.innerHTML = renderQuestion
+    questionText.innerHTML = renderQuestion + `<img src="/images/${i}.png" alt="JS Code" class="code-image">`
     answerText.innerHTML = renderAnswers
 
 }
@@ -165,41 +165,41 @@ function renderNextQuestion() {
     
     let question = questionSet[i]
 
-    const questionText = document.querySelector('.question')
-    const answerText = document.querySelector('.answers')
+    const questionText = document.querySelector('.question-container')
+    const answerText = document.querySelector('.choice-container')
 
     let renderQuestion = ''
     let renderAnswers = ''
 
     if (question.id == 2 || question.id == 7) {
-        renderQuestion += `<p>${question.question}</p>`
-        renderAnswers += `<div><input type="text" class="text" name="answer"></div>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
+        renderAnswers += `<div class="choice-text"><input type="text" class="text" name="answer"></div>`
     } else if (question.id == 5 || question.id == 6) {
-        renderQuestion += `<p>${question.question}</p>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
         renderAnswers +=
-        `<div><input type="radio" class="radio" name="answer" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice4']}">${question['choice4']}</div>`
+        `<label class="container">${question['choice1']}<input type="radio" class="radio" name="answer" value="${question['choice1']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="radio" class="radio" name="answer" value="${question['choice2']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="radio" class="radio" name="answer" value="${question['choice3']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="radio" class="radio" name="answer" value="${question['choice4']}"><span class="radio-checkmark"></span></label>`;
     } else if (question.id == 4 || question.id == 9) {
-        renderQuestion += `<p>${question.question}</p>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
         renderAnswers +=
-        `<div><input type="checkbox" class="checkbox" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice4']}">${question['choice4']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice5']}">${question['choice5']}</div>`
+        `<label class="container">${question['choice1']}<input type="checkbox" class="checkbox" value="${question['choice1']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="checkbox" class="checkbox" value="${question['choice2']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="checkbox" class="checkbox" value="${question['choice3']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="checkbox" class="checkbox" value="${question['choice4']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice5']}<input type="checkbox" class="checkbox" value="${question['choice5']}"><span class="checkbox-checkmark"></span></label>`
     } else {
-        renderQuestion += `<p>${question.question}</p>`;
+        renderQuestion += `<h2>${question.question}</h2>`;
         renderAnswers += 
-        `<div><input type="radio" class="radio" name="answer" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice4']}">${question['choice4']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice5']}">${question['choice5']}</div>`;
+        `<label class="container">${question['choice1']}<input type="radio" class="radio" name="answer" value="${question['choice1']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="radio" class="radio" name="answer" value="${question['choice2']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="radio" class="radio" name="answer" value="${question['choice3']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="radio" class="radio" name="answer" value="${question['choice4']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice5']}<input type="radio" class="radio" name="answer" value="${question['choice5']}"><span class="radio-checkmark"></span></label>`;;
     }
     
-    questionText.innerHTML = renderQuestion
+    questionText.innerHTML = renderQuestion + `<img src="/images/${i}.png" alt="JS Code" class="code-image">`
     answerText.innerHTML = renderAnswers
 }
 
@@ -209,41 +209,41 @@ function renderPreviousQuestion() {
     }
     let question = questionSet[i]
 
-    const questionText = document.querySelector('.question')
-    const answerText = document.querySelector('.answers')
+    const questionText = document.querySelector('.question-container')
+    const answerText = document.querySelector('.choice-container')
 
     let renderQuestion = ''
     let renderAnswers = ''
 
     if (question.id == 2 || question.id == 7) {
-        renderQuestion += `<p>${question.question}</p>`
-        renderAnswers += `<div><input type="text" class="text" name="answer"></div>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
+        renderAnswers += `<div class="choice-text"><input type="text" class="text" name="answer"></div>`
     } else if (question.id == 5 || question.id == 6) {
-        renderQuestion += `<p>${question.question}</p>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
         renderAnswers +=
-        `<div><input type="radio" class="radio" name="answer" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice4']}">${question['choice4']}</div>`
+        `<label class="container">${question['choice1']}<input type="radio" class="radio" name="answer" value="${question['choice1']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="radio" class="radio" name="answer" value="${question['choice2']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="radio" class="radio" name="answer" value="${question['choice3']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="radio" class="radio" name="answer" value="${question['choice4']}"><span class="radio-checkmark"></span></label>`;
     } else if (question.id == 4 || question.id == 9) {
-        renderQuestion += `<p>${question.question}</p>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
         renderAnswers +=
-        `<div><input type="checkbox" class="checkbox" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice4']}">${question['choice4']}</div>
-        <div><input type="checkbox" class="checkbox" value="${question['choice5']}">${question['choice5']}</div>`
+        `<label class="container">${question['choice1']}<input type="checkbox" class="checkbox" value="${question['choice1']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="checkbox" class="checkbox" value="${question['choice2']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="checkbox" class="checkbox" value="${question['choice3']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="checkbox" class="checkbox" value="${question['choice4']}"><span class="checkbox-checkmark"></span></label>
+        <label class="container">${question['choice5']}<input type="checkbox" class="checkbox" value="${question['choice5']}"><span class="checkbox-checkmark"></span></label>`
     } else {
-        renderQuestion += `<p>${question.question}</p>`
+        renderQuestion += `<h2 id="question">${question.question}</h2>`
         renderAnswers += 
-        `<div><input type="radio" class="radio" name="answer" value="${question['choice1']}">${question['choice1']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice2']}">${question['choice2']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice3']}">${question['choice3']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice4']}">${question['choice4']}</div>
-        <div><input type="radio" class="radio" name="answer" value="${question['choice5']}">${question['choice5']}</div>`;
+        `<label class="container">${question['choice1']}<input type="radio" class="radio" name="answer" value="${question['choice1']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice2']}<input type="radio" class="radio" name="answer" value="${question['choice2']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice3']}<input type="radio" class="radio" name="answer" value="${question['choice3']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice4']}<input type="radio" class="radio" name="answer" value="${question['choice4']}"><span class="radio-checkmark"></span></label>
+        <label class="container">${question['choice5']}<input type="radio" class="radio" name="answer" value="${question['choice5']}"><span class="radio-checkmark"></span></label>`;
     }
     
-    questionText.innerHTML = renderQuestion
+    questionText.innerHTML = renderQuestion + `<img src="/images/${i}.png" alt="JS Code" class="code-image">`
     answerText.innerHTML = renderAnswers
 
 }
@@ -298,19 +298,6 @@ function localStorageAnswers() {
     })
 }
 
-function submit() {
-
-    const submitBtn = document.createElement('button')
-    submitBtn.textContent = 'Submit'
-    submitBtn.setAttribute('class', 'submit')
-    document.querySelector('#page-nav').appendChild(submitBtn)
-
-    document.querySelector('.submit').addEventListener('click', () => {
-    location.assign('/results.html')
-    
-    })
-}
-
 function pageNavigation() {
     const pageNav = document.querySelector('#page-nav')
     pageNav.innerHTML = ''
@@ -318,8 +305,9 @@ function pageNavigation() {
     const nextBtn = document.createElement('button')
     const backBtn = document.createElement('button')
 
-    backBtn.setAttribute('class', 'back')
-    nextBtn.setAttribute('class', 'next')
+    backBtn.setAttribute('class', 'btn')
+    nextBtn.setAttribute('class', 'btn')
+    nextBtn.setAttribute('style', 'float:right')
 
     backBtn.textContent = 'Back'
     nextBtn.textContent = 'Next'
@@ -332,10 +320,9 @@ function pageNavigation() {
         localStorageAnswers()
         saveAnswers()
 
-        if (i < 9) {
-            if (document.querySelector('.submit')) {
-            document.querySelector('.submit').remove()
-            }
+        if (i == 0) {
+            backBtn.remove()
+        } else if (i < 9) {
             pageNavigation()
         }
     })
@@ -349,9 +336,14 @@ function pageNavigation() {
             if (nextBtn) {
              nextBtn.remove()   
             }
-            submit()
-        } 
+        } else if (i < 9) {
+            pageNavigation()
+        }
     })
+
+    if (i == 0) {
+        backBtn.remove()
+    }
 }
 
 
@@ -365,7 +357,7 @@ function resultsPage() {
 
         if (localStorage.getItem(`question ${j}`) == question.correctAnswer) {
             numCorrect += 1
-        } else if (questionSet[3].correctAnswer.split(' ').includes(localStorage.getItem(`question 3`))) {
+        } else if (questionSet[8].correctAnswer.split(' ').includes(localStorage.getItem(`question 8`))) {
             numCorrect += 1
         }
 
@@ -373,12 +365,12 @@ function resultsPage() {
 
     if (numCorrect >= 7) {
         document.querySelector('#results').innerHTML = 
-        `<p>Result: PASS</p>
-        <p>Score: ${numCorrect}/10 (${numCorrect}0%)</p>`
+        `<p class="result" style="color:green">PASS</p>
+        <p class="result">Score: ${numCorrect}/10 (${numCorrect}0%)</p>`
     } else if (numCorrect < 7) {
         document.querySelector('#results').innerHTML = 
-        `<p>Result: FAIL</p>
-        <p>Score: ${numCorrect}/10 (${numCorrect}0%)</p>
+        `<p class="result" style="color:red">FAIL</p>
+        <p class="result">Score: ${numCorrect}/10 (${numCorrect}0%)</p>
         <br>
         <br>`
     }

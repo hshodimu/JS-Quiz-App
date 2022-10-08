@@ -19,5 +19,3 @@ for (i = 0; i < 10; i++) {
             answer.style.color = 'green'
 })
 }
-
-console.log(questionSet[8].correctAnswer.split(' ')[0])

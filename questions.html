@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz - Questions</title>
+    <link rel="stylesheet" href="styles/questions.css"> 
 </head>
 <body>
-    <nav>
-        <a href="/index.html">Home</a>
-    </nav>
-    <div class="question"></div>
-    <div class="answers"></div>
-    <div id="page-nav"><button class="back">Back</button><button class="next">Next</button></div>
-    
+    <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li style="float:right"><a href="results.html">Submit</a></li>
+      </ul>
+    <div class="question-container"></div>
+    <div class="choice-container"></div>
+    <div id="page-nav">
+        <button class="btn">Back</button>
+        <button class="btn">Next</button>
+    </div>
     <script src="/scripts/functions.js"></script>
     <script src="/scripts/questions.js"></script>
 </body>
